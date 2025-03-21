@@ -1,6 +1,7 @@
 # PersonalProjects
 Welcome to my personal projects repository! This folder contains various projects I have worked on, showcasing my skills and interests in different areas of programming, including C++, Data Science with Python and Pandas, and Front-End Development. Each project is designed to help me deepen my understanding of these topics and develop practical solutions.
 
+## | IN PROGRESS |
 ## Projects Overview
 
 ### C++ Projects
