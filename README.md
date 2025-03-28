@@ -8,8 +8,8 @@ Welcome to my personal projects repository! This folder contains various project
 - **Description**: Projects demonstrating my knowledge of C++ programming, including basic concepts like control flow, functions, and procedures, as well as more advanced topics.
 ### NeoVim Config
 Inspiration from:
-https://www.youtube.com/watch?v=KYDG3AHgYEs&t=2745s
-https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
+- https://www.youtube.com/watch?v=KYDG3AHgYEs&t=2745s
+- https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
 
 - **Technologies Used**: C++
 - **Examples**: 
