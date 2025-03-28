@@ -6,15 +6,16 @@ Welcome to my personal projects repository! This folder contains various project
 
 ### C++ Projects
 - **Description**: Projects demonstrating my knowledge of C++ programming, including basic concepts like control flow, functions, and procedures, as well as more advanced topics.
-### NeoVim Config
-Inspiration from:
-- https://www.youtube.com/watch?v=KYDG3AHgYEs&t=2745s
-- https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
 
 - **Technologies Used**: C++
 - **Examples**: 
   - Shop Management System (Track products, sales, and profits)
   - Algorithms and data structure implementations
+
+### NeoVim Config
+Inspiration from:
+- https://www.youtube.com/watch?v=KYDG3AHgYEs&t=2745s
+- https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
 
 ### Data Science with Python & Pandas
 - **Description**: Data analysis and manipulation projects using Python and the Pandas library. These projects include tasks like data cleaning, data visualization with Seaborn, and building machine learning models.
