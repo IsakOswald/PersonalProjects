@@ -1,0 +1,76 @@
+{
+  "files.autoSave": "afterDelay",
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.fontSize": 11,
+  "editor.tabSize": 5,
+  "editor.minimap.enabled": false,
+  "editor.lineNumbers": "relative",
+  "editor.renderLineHighlight": "all",
+  "workbench.editor.editorActionsLocation": "hidden",
+  "workbench.iconTheme": "vs-minimal",
+  "workbench.tips.enabled": false,
+  "breadcrumbs.enabled": false,
+  "breadcrumbs.icons": false,
+  "workbench.activityBar.location": "bottom",
+  "workbench.colorTheme": "Nord",
+  "editor.cursorBlinking": "solid",
+  "editor.cursorStyle": "line-thin",
+  "vim.sneakUseIgnorecaseAndSmartcase": true,
+  "vim.statusBarColors.easymotioninputmode": "",
+  "vim.statusBarColors.easymotionmode": "",
+  "vim.statusBarColors.normal": "",
+  "vim.statusBarColors.commandlineinprogress": "",
+  //Set the leader key to space
+  "vim.leader": " ",
+  // Format indents of save
+  "editor.formatOnSave": true,
+  // Make sure we are starting in normal mode and not visual mode or insert mode
+  "vim.startInInsertMode": false,
+  // Set our vim keybinds in normal mode
+  "vim.normalModeKeyBindings": [
+    // Open file tree with leader n
+    {
+      "before": [
+        "<leader>",
+        "n"
+      ],
+      "commands": [
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    },
+    // Comment a line out with leader c
+    {
+      "before": [
+        "<leader>",
+        "c"
+      ],
+      "commands": [
+        "editor.action.commentLine"
+      ]
+    },
+    // Open fuzzy finder
+    {
+      "before": [
+        "<leader>",
+        "s",
+        "f"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
+    },
+    // Open the search window
+    {
+      "before": [
+        "<leader>",
+        "s",
+        "s"
+      ],
+      "commands": [
+        "actions.find"
+      ]
+    }
+    // Add other keybinds here that need leader, if they dont, put them in the keybindings.json file
+    //Add here
+  ],
+}
