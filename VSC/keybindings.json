@@ -12,7 +12,7 @@
   },
   // Save a file with ctrl s
   {
-    "key": "ctrl+s",
+    "key": "ctrl+w",
     "command": "workbench.action.files.save",
     "when": "editorTextFocus"
   },

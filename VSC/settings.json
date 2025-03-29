@@ -1,5 +1,6 @@
 {
   "files.autoSave": "afterDelay",
+  "editor.formatOnSave": true,
   "security.workspace.trust.untrustedFiles": "open",
   "editor.fontSize": 11,
   "editor.tabSize": 5,
@@ -22,8 +23,6 @@
   "vim.statusBarColors.commandlineinprogress": "",
   //Set the leader key to space
   "vim.leader": " ",
-  // Format indents of save
-  "editor.formatOnSave": true,
   // Make sure we are starting in normal mode and not visual mode or insert mode
   "vim.startInInsertMode": false,
   // Set our vim keybinds in normal mode
@@ -69,8 +68,12 @@
       "commands": [
         "actions.find"
       ]
-    }
+    },
     // Add other keybinds here that need leader, if they dont, put them in the keybindings.json file
     //Add here
   ],
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "workbench.startupEditor": "none",
 }
