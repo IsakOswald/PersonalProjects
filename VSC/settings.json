@@ -13,7 +13,6 @@
   "breadcrumbs.enabled": false,
   "breadcrumbs.icons": false,
   "workbench.activityBar.location": "bottom",
-  "workbench.colorTheme": "Nord",
   "editor.cursorBlinking": "solid",
   "editor.cursorStyle": "line-thin",
   "vim.sneakUseIgnorecaseAndSmartcase": true,
@@ -21,6 +20,7 @@
   "vim.statusBarColors.easymotionmode": "",
   "vim.statusBarColors.normal": "",
   "vim.statusBarColors.commandlineinprogress": "",
+  "vim.useSystemClipboard": true,
   //Set the leader key to space
   "vim.leader": " ",
   // Make sure we are starting in normal mode and not visual mode or insert mode
@@ -37,6 +37,16 @@
         "workbench.action.toggleSidebarVisibility"
       ]
     },
+    // Create a split pane vertical
+    {
+      "before": [
+        "<leader>",
+        "s"
+      ],
+      "commands": [
+        "workbench.action.splitEditorRight"
+      ]
+    },
     // Comment a line out with leader c
     {
       "before": [
@@ -47,6 +57,7 @@
         "editor.action.commentLine"
       ]
     },
+
     // Open fuzzy finder
     {
       "before": [
@@ -76,4 +87,5 @@
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
   "workbench.startupEditor": "none",
+  "workbench.colorTheme": "One Dark Pro Darker",
 }

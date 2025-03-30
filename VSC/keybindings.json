@@ -19,7 +19,7 @@
   // Quit with ctrl q
   {
     "key": "ctrl+q",
-    "command": "workbench.action.quit"
+    "command": "workbench.action.closeActiveEditor"
   },
   // Go one tab left with crtl h
   {
