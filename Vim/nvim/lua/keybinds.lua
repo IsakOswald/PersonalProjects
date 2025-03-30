@@ -1,7 +1,7 @@
 --Set leader key
 vim.g.mapleader = ' '
 vim.g.maplocalleadr = ' '
-
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {noremap = true})  -- Escape exits terminal mode
 --Disable the spacebar key's deafult behaviour in Normal and Visual mode
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
@@ -29,4 +29,5 @@ vim.keymap.set('v', '>', '>gv', opts)
 
 --Keep last yanked when pasting
 vim.keymap.set('v', 'p', '"-dP', opts)
+
 

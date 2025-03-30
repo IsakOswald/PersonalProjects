@@ -13,12 +13,11 @@ return {
   opts = {
     -- fill any relevant options here
   },
-
---Keymaps
-
+},
+--Keybinds for NeoTree
 vim.keymap.set('n', '<leader>n', ':Neotree toggle position=left<CR>', {noremap = true, silent = true})
+-- Move between Neo-tree and the code editor
 
-  
-}
+
 
 
