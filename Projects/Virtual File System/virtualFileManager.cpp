@@ -1,5 +1,6 @@
 #include "includes.h"
 #include "menus.h"
+#include "threads.h"
 #include "utils.h"
 
 class Permission
@@ -238,7 +239,7 @@ class File_System
 
         if (!access)
         {
-            std::cout << "You dont have the correct permissions, you need [w] permissions" << std::endl;
+            std::cout << "You dont have the correct permission/s, you need [w] permission/s" << std::endl;
         }
     }
 
@@ -248,12 +249,21 @@ class File_System
         std::lock_guard<std::mutex> lock(_mutex);
 
         int id = get_valid_ID();
+        bool access = check_valid_permission('r', id);
 
-        std::cout << "Attempting to read contents of file " + std::to_string(id) + "." << std::endl;
+        if (access)
+        {
+            std::cout << "Attempting to read contents of file " + std::to_string(id) + "." << std::endl;
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+            std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
-        std::cout << "Contents : " << _files[id].contents + "[EOF]" << std::endl;
+            std::cout << "Contents : " << _files[id].contents + "[EOF]" << std::endl;
+        }
+
+        if (!access)
+        {
+            std::cout << "You dont have the correct permission/s, you need the [r] permission/s" << std::endl;
+        }
     }
 
     void change_file_permission()
@@ -275,7 +285,7 @@ class File_System
 
     void print_current_permission()
     {
-        print_divider("Permissions");
+        print_divider("Current Permissions");
 
         std::lock_guard<std::mutex> lock(_mutex);
 
@@ -343,3 +353,13 @@ void run_fs(File_System& fs)
 
     } while (choice != 0);
 }
+
+void file_thread(File_System& fs) {}
+
+void text_thread(File_System& fs) {}
+
+void permissions_thread(File_System& fs) {}
+
+void encryption_thread(File_System& fs) {}
+
+void saving_thread(File_System& fs) {}

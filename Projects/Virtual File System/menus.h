@@ -13,3 +13,7 @@ void print_main_menu()
     std::cout << "[6] Print view permissions" << std::endl;
     std::cout << "[0] Quit" << std::endl;
 }
+
+void file_menu() {}
+void text_menu() {}
+void permissions_menu() {}
