@@ -63,4 +63,7 @@ class File_System
     void print_current_permission();
     bool check_valid_permission(char perm, int id);
     void encrypt_decrypt();
+    void save_to_disk();
+    // To implement
+    // void read_from_disk();
 };

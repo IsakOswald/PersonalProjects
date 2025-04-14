@@ -30,6 +30,9 @@ void run_main_menu(File_System& fs)
             case 4:
                 run_encrypt_decrypt_menu(fs);
                 break;
+            case 5:
+                run_save_load_menu(fs);
+                break;
             case 0:
                 std::cout << "Quitting!" << std::endl;
                 break;
@@ -155,6 +158,37 @@ void run_encrypt_decrypt_menu(File_System& fs)
             case 1:
                 fs.encrypt_decrypt();
                 pause_timer();
+                break;
+
+            case 0:
+                std::cout << "Returning to the main menu" << std::endl;
+                break;
+            default:
+                std::cout << "Not a valid option" << std::endl;
+                break;
+        }
+    } while (choice != 0);
+}
+
+void run_save_load_menu(File_System& fs)
+{
+    int choice;
+
+    do
+    {
+        clear_screen();
+        print_save_load_menu();
+
+        choice = get_int("Enter a choice: ");
+
+        switch (choice)
+        {
+            case 1:
+                fs.save_to_disk();
+                loading_animation(3);
+                break;
+            case 2:
+                // Implement loading.
                 break;
 
             case 0:

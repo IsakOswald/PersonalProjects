@@ -41,3 +41,11 @@ void print_encrypt_decrypt_menu()
     std::cout << "[0] Back to Main Menu" << std::endl;
     std::cout << "Note: You can use option one to both encrypt and decrypt you files." << std::endl;
 }
+
+void print_save_load_menu()
+{
+    print_divider("Persistence Manager");
+    std::cout << "[1] Save current files" << std::endl;
+    std::cout << "[2] Load existing files" << std::endl;
+    std::cout << "[0] Back to Main Menu" << std::endl;
+}

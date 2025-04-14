@@ -294,3 +294,37 @@ std::string File_System::create_encrypt_key()
 
     return key;
 }
+
+void File_System::save_to_disk()
+{
+    std::lock_guard<std::mutex> lock(_mutex);
+    std::ofstream write_file("v_file_system.txt");
+
+    if (!write_file)
+    {
+        std::cerr << "Error opening the file for writing." << std::endl;
+        return;
+    }
+
+    for (auto& pair : _files)
+    {
+        File& file = pair.second;
+
+        write_file << file.ID << '\n';
+        write_file << file.inode.file_ext << '\n';
+        write_file << file.inode.file_name << '\n';
+        write_file << file.inode.size << '\n';
+        write_file << file.contents << '\n';
+
+        for (const auto& perm : file.inode.permissions.current_permissions())
+        {
+            write_file << perm;
+        }
+
+        write_file << '\n';
+    }
+
+    write_file.close();
+}
+
+// void File_System::read_from_disk() {}
