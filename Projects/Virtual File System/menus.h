@@ -5,15 +5,41 @@
 void print_main_menu()
 {
     print_divider("Main Menu");
-    std::cout << "[1] Create a file" << std::endl;
-    std::cout << "[2] Print files data" << std::endl;
-    std::cout << "[3] Append text to file" << std::endl;
-    std::cout << "[4] Read file" << std::endl;
-    std::cout << "[5] Print change file permissions" << std::endl;
-    std::cout << "[6] Print view permissions" << std::endl;
-    std::cout << "[0] Quit" << std::endl;
+    std::cout << "[1] FILE MENU" << std::endl;
+    std::cout << "[2] TEXT MENU" << std::endl;
+    std::cout << "[3] PERMISSIONS MENU" << std::endl;
+    std::cout << "[4] ENCRYPTION MENU" << std::endl;
+    std::cout << "[5] DISK MENU" << std::endl;
+    std::cout << "[0] QUIT" << std::endl;
 }
 
-void file_menu() {}
-void text_menu() {}
-void permissions_menu() {}
+void print_file_menu()
+{
+    print_divider("File Menu");
+    std::cout << "[1] Add File" << std::endl;
+    std::cout << "[2] Remove File" << std::endl;
+    std::cout << "[3] Print File Data" << std::endl;
+    std::cout << "[0] Back to Main Menu" << std::endl;
+}
+void print_text_menu()
+{
+    print_divider("Text Menu");
+    std::cout << "[1] Append Text" << std::endl;
+    std::cout << "[2] Overwrite Text" << std::endl;
+    std::cout << "[3] Read Text" << std::endl;
+    std::cout << "[0] Back to Main Menu" << std::endl;
+}
+void print_permissions_menu()
+{
+    print_divider("Permissions Menu");
+    std::cout << "[1] Print File Permissions" << std::endl;
+    std::cout << "[2] Modify File Permissions" << std::endl;
+    std::cout << "[0] Back to Main Menu" << std::endl;
+}
+void print_encrypt_decrypt_menu()
+{
+    print_divider("Encryption/Decrypt menu");
+    std::cout << "[1] Encrypt/Decrypt" << std::endl;
+    std::cout << "[0] Back to Main Menu" << std::endl;
+    std::cout << "Note: You can use option one to both encrypt and decrypt you files." << std::endl;
+}

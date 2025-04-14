@@ -110,3 +110,29 @@ void print_divider(std::string title)
 }
 
 void print_internal_divider() { std::cout << "~~~~~~~~~~~~~~~~~~~~~~~" << '\n'; }
+
+void clear_screen() { system("clear"); }
+
+void pause_timer() { std::this_thread::sleep_for(std::chrono::milliseconds(1650)); }
+
+void pause_key()
+{
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Clear the input buffer
+    std::cout << "\nPress Enter to continue...";
+    std::cin.get();  // Wait for Enter
+}
+
+void loading_animation(int iters)
+{
+    std::string prompt = "Loading";
+    std::string dots = "";
+
+    for (int i = 0; i < iters; i++)
+    {
+        dots += ".";                                                  // Add one dot per iteration
+        std::cout << "\r" << prompt << dots << std::flush;            // Use carriage return to overwrite the same line
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));  // Shorter delay for smoother animation
+    }
+
+    std::cout << std::endl;  // Move to the next line after the animation
+}

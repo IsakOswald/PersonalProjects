@@ -49,7 +49,7 @@ class Permission
         if (_permissions.find(perm) != _permissions.end())
         {
             _permissions[perm] = value;
-            std::cout << "The permission " << std::to_string(_permissions[perm]) << " was updated";
+            std::cout << "The permission " << std::to_string(_permissions[perm]) << " was updated" << std::endl;
         }
 
         else
@@ -86,6 +86,7 @@ class Inode
         print_divider("Set Inode data");
         file_name = get_string("Enter the file name: ");
         file_ext = get_ext();
+        std::cout << "Operation was completed" << std::endl;
     }
 
    private:
@@ -156,6 +157,12 @@ class File_System
             }
         }
 
+        while (_files.size() == 0)
+        {
+            std::cout << "You do not currently have any files" << std::endl;
+            return -1;
+        }
+
         if (!found)
         {
             std::cout << "The ID was not found!" << std::endl;
@@ -163,6 +170,23 @@ class File_System
         }
 
         return -1;
+    }
+
+    std::string create_encrypt_key()
+    {
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        print_internal_divider();
+
+        std::string key = get_string("Please enter you Key: ");
+
+        std::cout << "The key [" << key << "] has been generated successfully." << std::endl;
+
+        std::cout << "MAKE SURE TO WRITE THIS DOWN, IF THE KEY IS LOST, SO IS YOU DATA" << std::endl;
+        std::cout << "If encrypt key is entered incorrectly, the data will be re-encrypted and therefore lost." << std::endl;
+
+        pause_key();
+
+        return key;
     }
 
    public:
@@ -243,6 +267,31 @@ class File_System
         }
     }
 
+    void overwrite_text()
+    {
+        print_divider("Overwrite Mode");
+        std::lock_guard<std::mutex> lock(_mutex);
+
+        int id = get_valid_ID();
+        bool access = check_valid_permission('w', id);
+
+        if (access)
+        {
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::string content = get_string("Enter the text you want to write: ");
+            _files[id].contents = content;
+
+            print_internal_divider();
+
+            std::cout << "Your text was successfully added to the file with the ID of " + std::to_string(id) << std::endl;
+        }
+
+        if (!access)
+        {
+            std::cout << "You dont have the correct permission/s, you need [w] permission/s" << std::endl;
+        }
+    }
+
     void read_text()
     {
         print_divider("Read mode");
@@ -279,8 +328,6 @@ class File_System
         bool value = get_bool("Grand permission?: ");
 
         _files[id].inode.permissions.change_permission(perm, value);
-
-        std::cout << "The file with the ID " << std::to_string(id) << " permissions have be updated!" << std::endl;
     }
 
     void print_current_permission()
@@ -291,7 +338,15 @@ class File_System
 
         int id = get_valid_ID();
 
-        std::cout << "Current Permissions ->" << _files[id].inode.permissions.current_permissions() << std::endl;
+        if (_files[id].inode.permissions.current_permissions() == "---")
+        {
+            std::cout << "You currently have no permissions!" << std::endl;
+        }
+
+        else
+        {
+            std::cout << "Current Permissions -> " << _files[id].inode.permissions.current_permissions() << std::endl;
+        }
     }
 
     bool check_valid_permission(char perm, int id)
@@ -303,63 +358,213 @@ class File_System
 
         return false;
     }
+
+    void encrypt_decrypt()
+    {
+        print_divider("Encrypt/Decrypt Manager");
+        std::lock_guard<std::mutex> lock(_mutex);
+
+        int id = get_int("Enter the target file ID: ");
+
+        // Get the contents of the file before we replace it.
+        std::string text = _files[id].contents;
+        // Create a variable to store the encrypted text.
+        std::string encrypted_text = "";
+
+        std::string key = create_encrypt_key();
+
+        for (int i = 0; i < text.length(); i++)
+        {
+            // If we mod the i value, we restart the encryption key if the key is shorted then the string.
+            char encrypted_char = text[i] ^ key[i % key.length()];
+            encrypted_text += encrypted_char;
+        }
+
+        // Set the files contents to the new encrypted text.
+        _files[id].contents = encrypted_text;
+
+        loading_animation(5);
+
+        std::cout << "Files have been encrypted successfully!" << std::endl;
+    }
 };
 
 //? Function declarations
-void run_fs(File_System& fs);
-void print_main_menu();
+void run_main_menu(File_System& fs);
+void run_file_menu(File_System& fs);
+void run_permissions_menu(File_System& fs);
+void run_text_menu(File_System& fs);
+void run_encrypt_decrypt_menu(File_System& fs);
 
 int main()
 {
     File_System my_file_system;
 
-    std::thread thread1(run_fs, std::ref(my_file_system));
+    std::thread thread1(run_main_menu, std::ref(my_file_system));
 
     thread1.join();
 
     return 1;
 }
 
-void run_fs(File_System& fs)
+void run_main_menu(File_System& fs)
 {
     int choice;
 
     do
     {
+        clear_screen();
         print_main_menu();
+
+        choice = get_int("Enter a choice: ");
+
+        switch (choice)
+        {
+            case 1:
+                run_file_menu(fs);
+                break;
+            case 2:
+                run_text_menu(fs);
+                break;
+            case 3:
+                run_permissions_menu(fs);
+                break;
+            case 4:
+                run_encrypt_decrypt_menu(fs);
+                break;
+            case 0:
+                std::cout << "Quitting!" << std::endl;
+                break;
+            default:
+                std::cout << "Not a valid option!" << std::endl;
+                break;
+        }
+    } while (choice != 0);
+}
+
+void run_file_menu(File_System& fs)
+{
+    int choice;
+
+    do
+    {
+        clear_screen();
+        print_file_menu();
+
         choice = get_int("Enter a choice: ");
 
         switch (choice)
         {
             case 1:
                 fs.add_file();
+                pause_timer();
                 break;
             case 2:
-                fs.print_files_data();
+                fs.remove_file();
+                pause_timer();
                 break;
             case 3:
-                fs.append_text();
+                fs.print_files_data();
+                pause_key();
                 break;
-            case 4:
-                fs.read_text();
+            case 0:
+                std::cout << "Returning to the main menu" << std::endl;
                 break;
-            case 5:
-                fs.change_file_permission();
-                break;
-            case 6:
-                fs.print_current_permission();
+            default:
+                std::cout << "Not a valid option!" << std::endl;
                 break;
         }
+    } while (choice != 0);
+}
+void run_permissions_menu(File_System& fs)
+{
+    int choice;
 
+    do
+    {
+        clear_screen();
+        print_permissions_menu();
+
+        choice = get_int("Enter a choice: ");
+
+        switch (choice)
+        {
+            case 1:
+                fs.print_current_permission();
+                pause_key();
+                break;
+            case 2:
+                fs.change_file_permission();
+                pause_timer();
+                break;
+            case 0:
+                std::cout << "Returning to the main menu" << std::endl;
+                break;
+            default:
+                std::cout << "Not a valid option" << std::endl;
+                break;
+        }
+    } while (choice != 0);
+}
+void run_text_menu(File_System& fs)
+{
+    int choice;
+
+    do
+    {
+        clear_screen();
+        print_text_menu();
+
+        choice = get_int("Enter a choice: ");
+
+        switch (choice)
+        {
+            case 1:
+                fs.append_text();
+                pause_timer();
+                break;
+            case 2:
+                fs.overwrite_text();
+                pause_timer();
+                break;
+            case 3:
+                fs.read_text();
+                pause_key();
+                break;
+            case 0:
+                std::cout << "Returning to the main menu" << std::endl;
+                break;
+            default:
+                std::cout << "Not a valid option" << std::endl;
+                break;
+        }
     } while (choice != 0);
 }
 
-void file_thread(File_System& fs) {}
+void run_encrypt_decrypt_menu(File_System& fs)
+{
+    int choice;
 
-void text_thread(File_System& fs) {}
+    do
+    {
+        clear_screen();
+        print_encrypt_decrypt_menu();
 
-void permissions_thread(File_System& fs) {}
+        choice = get_int("Enter a choice: ");
 
-void encryption_thread(File_System& fs) {}
+        switch (choice)
+        {
+            case 1:
+                fs.encrypt_decrypt();
+                pause_timer();
+                break;
 
-void saving_thread(File_System& fs) {}
+            case 0:
+                std::cout << "Returning to the main menu" << std::endl;
+                break;
+            default:
+                std::cout << "Not a valid option" << std::endl;
+                break;
+        }
+    } while (choice != 0);
+}
