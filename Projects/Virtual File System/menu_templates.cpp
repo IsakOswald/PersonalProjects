@@ -1,6 +1,4 @@
-#pragma once
-
-#include "utils.h"
+#include "utils.hpp"
 
 void print_main_menu()
 {

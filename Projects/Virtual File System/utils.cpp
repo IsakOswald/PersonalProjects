@@ -1,5 +1,4 @@
-#pragma once
-#include "includes.h"
+#include "includes.hpp"
 
 std::string get_string(const std::string& prompt)
 {
