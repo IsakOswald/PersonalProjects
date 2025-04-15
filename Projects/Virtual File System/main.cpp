@@ -21,6 +21,8 @@ void auto_save(File_System& fs)
 
 int main()
 {
+    // Look for debuggers attached.
+    anti_debug_ptrace();
     // New File_System obj.
     File_System my_file_system;
 

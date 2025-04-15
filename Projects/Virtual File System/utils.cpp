@@ -139,3 +139,12 @@ void loading_animation(int iters)
 
     std::cout << std::endl;  // After animation is complete move to the next line.
 }
+
+void anti_debug_ptrace()
+{
+    if (ptrace(PT_DENY_ATTACH, 0, 0, 0) != 0)
+    {
+        std::cout << "Debugger detected. Exiting...\n";
+        exit(1);
+    }
+}

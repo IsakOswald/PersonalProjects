@@ -14,3 +14,4 @@ void clear_screen();
 void pause_timer();
 void pause_key();
 void loading_animation(int iters);
+void anti_debug_ptrace();
