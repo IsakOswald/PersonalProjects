@@ -53,3 +53,19 @@ void print_save_load_menu()
     std::cout << "[2] Load existing files" << std::endl;
     std::cout << "[0] Back to Main Menu" << std::endl;
 }
+
+void print_splash_screen()
+{
+    std::cout << R"(
+        __     __     ______     __         ______     __  __    
+       /\ \  _ \ \   /\  ___\   /\ \       /\  __ \   /\ \_\ \   
+       \ \ \/ ".\ \  \ \ \____  \ \ \____  \ \ \/\ \  \ \____ \  
+        \ \__/".~\_\  \ \_____\  \ \_____\  \ \_____\  \/\_____\ 
+         \/_/   \/_/   \/_____/   \/_____/   \/_____/   \/_____/ 
+                                                                 
+                V I R T U A L   F I L E   M A N A G E R          
+       )" << std::endl;
+
+    std::cout << "\nPress Enter to continue...";
+    std::cin.get();
+}

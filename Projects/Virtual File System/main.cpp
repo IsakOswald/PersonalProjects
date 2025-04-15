@@ -24,6 +24,8 @@ int main()
     // New File_System obj.
     File_System my_file_system;
 
+    print_splash_screen();
+
     //! The auto saving thread.
     std::thread auto_saver(auto_save, std::ref(my_file_system));
 
