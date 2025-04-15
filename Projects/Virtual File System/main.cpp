@@ -9,14 +9,25 @@ bool keep_running = true;
 //! This is for a thread to auto save files.
 void auto_save(File_System& fs)
 {
-    // While the tread is allowed to run.
+    int elapsed_seconds = 0;
+    const int SAVE_INTERVAL = 120;
+
     while (keep_running)
     {
-        //! Auto save to the disk (our .txt file) every 10 seconds.
-        std::this_thread::sleep_for(std::chrono::seconds(10));
-        fs.save_to_disk();
-        std::cout << "\n[AutoSave] File system saved to disk.\n";
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+        elapsed_seconds++;
+
+        if (elapsed_seconds >= SAVE_INTERVAL)
+        {
+            fs.save_to_disk();
+            std::cout << "\n[AutoSave] File system saved to disk.\n";
+            elapsed_seconds = 0;
+        }
     }
+
+    // Final save before exiting the thread
+    fs.save_to_disk();
+    std::cout << "\n[AutoSave] Final save before exit.\n";
 }
 
 int main()

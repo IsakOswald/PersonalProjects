@@ -407,35 +407,35 @@ std::string File_System::create_encrypt_key()
     std::cout << "MAKE SURE TO WRITE THIS DOWN, IF THE KEY IS LOST, SO IS YOUR DATA" << std::endl;
     std::cout << "If the encrypt key is entered incorrectly, the data will be re-encrypted and therefore lost." << std::endl;
 
-    //Give them time to write it down.
+    // Give them time to write it down.
     pause_key();
 
-    //Return the key.
+    // Return the key.
     return key;
 }
 //! Allow the files to be saved to disk
 void File_System::save_to_disk()
 {
-    //Lock the file
+    // Lock the file
     std::lock_guard<std::mutex> lock(_mutex);
-    //Create a file to write to.
+    // Create a file to write to.
     std::ofstream write_file("v_file_system.txt");
 
-    //Check if it is open.
+    // Check if it is open.
     if (!write_file)
     {
         std::cerr << "Error opening the file for writing." << std::endl;
         return;
     }
 
-    //For every key : value pair in the files.
+    // For every key : value pair in the files.
     for (auto& pair : _files)
     {
         File& file = pair.second;
 
         write_file << "[START FILE]" << std::endl;
 
-        //Write the files to the new file
+        // Write the files to the new file
         write_file << file.ID << '\n';
         write_file << file.inode.file_ext << '\n';
         write_file << file.inode.file_name << '\n';
@@ -448,24 +448,24 @@ void File_System::save_to_disk()
             write_file << perm;
         }
 
-        //Specify the end of file for easy reading.
+        // Specify the end of file for easy reading.
         write_file << '\n';
-        write_file << "[END FILE]";
+        write_file << "[END FILE]" << '\n';
     }
 
-    //This does not have to be here, will close when write_file goes out of scope.
+    // This does not have to be here, will close when write_file goes out of scope.
     write_file.close();
 }
 
 //! Allow the user to read back their files from the disk
 void File_System::read_from_disk()
 {
-    //Lock from other threads.
+    // Lock from other threads.
     std::lock_guard<std::mutex> lock(_mutex);
-    //Open the file on disk.
+    // Open the file on disk.
     std::ifstream read_file("v_file_system.txt");
 
-    //Check if its accessible.
+    // Check if its accessible.
     if (!read_file)
     {
         std::cerr << "Error opening the file for reading. Does it exist?" << std::endl;
@@ -473,7 +473,7 @@ void File_System::read_from_disk()
     }
 
     std::string line;
-    //while there is new lines in the read file.
+    // while there is new lines in the read file.
     while (std::getline(read_file, line))
     {
         //? Make sure the read file is valid. This allows user to write their own content in the file also
@@ -481,13 +481,13 @@ void File_System::read_from_disk()
         {
             File file;
 
-            //Read the ID as a string
+            // Read the ID as a string
             std::string id_str;
             std::getline(read_file, id_str);
-            //Convert back to int and place back into file.
+            // Convert back to int and place back into file.
             file.ID = std::stoi(id_str);
 
-            //Get the file extension and name
+            // Get the file extension and name
             std::getline(read_file, file.inode.file_ext);
             std::getline(read_file, file.inode.file_name);
 
@@ -499,7 +499,7 @@ void File_System::read_from_disk()
             // Contents get the contents.
             std::getline(read_file, file.contents);
 
-            //Get the permissions
+            // Get the permissions
             std::string permissions_str;
             std::getline(read_file, permissions_str);
             file.inode.permissions.load_from_string(permissions_str);
