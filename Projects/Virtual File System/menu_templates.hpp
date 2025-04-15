@@ -1,6 +1,6 @@
 #pragma once
 
-//
+// Function decs.
 void print_main_menu();
 void print_file_menu();
 void print_text_menu();

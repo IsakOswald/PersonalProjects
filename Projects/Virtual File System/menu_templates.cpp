@@ -1,5 +1,6 @@
 #include "utils.hpp"
 
+// This is our menu for the main menu
 void print_main_menu()
 {
     print_divider("Main Menu");
@@ -10,7 +11,7 @@ void print_main_menu()
     std::cout << "[5] DISK MENU" << std::endl;
     std::cout << "[0] QUIT" << std::endl;
 }
-
+// Menu for the file related options
 void print_file_menu()
 {
     print_divider("File Menu");
@@ -19,6 +20,7 @@ void print_file_menu()
     std::cout << "[3] Print File Data" << std::endl;
     std::cout << "[0] Back to Main Menu" << std::endl;
 }
+// Menu for the related text options
 void print_text_menu()
 {
     print_divider("Text Menu");
@@ -27,6 +29,7 @@ void print_text_menu()
     std::cout << "[3] Read Text" << std::endl;
     std::cout << "[0] Back to Main Menu" << std::endl;
 }
+// Menu for the permission related options
 void print_permissions_menu()
 {
     print_divider("Permissions Menu");
@@ -34,6 +37,7 @@ void print_permissions_menu()
     std::cout << "[2] Modify File Permissions" << std::endl;
     std::cout << "[0] Back to Main Menu" << std::endl;
 }
+// Menu for the encrypt/decrypt options.
 void print_encrypt_decrypt_menu()
 {
     print_divider("Encryption/Decrypt menu");
@@ -41,7 +45,7 @@ void print_encrypt_decrypt_menu()
     std::cout << "[0] Back to Main Menu" << std::endl;
     std::cout << "Note: You can use option one to both encrypt and decrypt you files." << std::endl;
 }
-
+// The Persistence options
 void print_save_load_menu()
 {
     print_divider("Persistence Manager");

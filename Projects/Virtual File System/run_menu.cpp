@@ -9,13 +9,16 @@ void run_main_menu(File_System& fs)
 {
     int choice;
 
+    // Keep asking to user to perform actions
     do
     {
+        // Clear the screen to avoid pages of terminal output.
         clear_screen();
         print_main_menu();
 
         choice = get_int("Enter a choice: ");
 
+        // Based on the main menu options, perform the corrsponding actions.
         switch (choice)
         {
             case 1:
@@ -40,8 +43,12 @@ void run_main_menu(File_System& fs)
                 std::cout << "Not a valid option!" << std::endl;
                 break;
         }
-    } while (choice != 0);
+    } while (choice != 0);  // Loop unless the user wants to quit.
 }
+
+//! +++++++++++++++
+//! All of the other file menus are similar, however perform different actions.
+//! +++++++++++++++
 
 void run_file_menu(File_System& fs)
 {
@@ -188,7 +195,8 @@ void run_save_load_menu(File_System& fs)
                 loading_animation(3);
                 break;
             case 2:
-                // Implement loading.
+                fs.read_from_disk();
+                loading_animation(3);
                 break;
 
             case 0:
