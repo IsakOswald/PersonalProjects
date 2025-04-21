@@ -1,3 +1,6 @@
+-- Make sure no more than 10 options are displayed (auto-completions popup)
+vim.opt.pumheight = 10
+
 -- Make line numbers default
 vim.opt.number = true
 
