@@ -53,7 +53,7 @@ return {
 				-- NOTE: Remember that Lua is a real programming language, and as such it is possible
 				-- to define small helper and utility functions so you don't have to repeat yourself.
 
-				-- This is used for our lsp-argument-hints plugin.
+				--[[This is used for our lsp-argument-hints plugin.]]
 				require("lsp_signature").on_attach({}, event.buf)
 
 				-- In this case, we create a function that lets us more easily define mappings specific
@@ -201,6 +201,8 @@ return {
 		--local capabilities = require('blink.cmp').get_lsp_capabilities() [[Dont think i need this]]
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+
+		-- capabilities.textDocument.completion.completionItem.snippetSupport = false -- Disable LSP snippets(if i need to later)
 
 		-- Enable the following language servers
 		--  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
