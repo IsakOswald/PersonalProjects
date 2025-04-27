@@ -1,4 +1,4 @@
--- This is used for when we open a function () it tells us the arugments we can use.
+--This is used for when we open a function () it tells us the arugments we can use.
 return {
 	"ray-x/lsp_signature.nvim",
 	event = "LspAttach", -- Load when LSP attaches

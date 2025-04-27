@@ -21,7 +21,7 @@ return {
 			},
 			indent = {
 				enable = true,
-				disable = { "cpp" }, --Disable defualt tree sitter behaviour [fix for :: indents]
+				disable = { "cpp" },
 			},
 		},
 	},
