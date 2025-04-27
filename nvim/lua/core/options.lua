@@ -1,6 +1,5 @@
 -- Make sure no more than 10 options are displayed (auto-completions popup)
 vim.opt.pumheight = 10
-
 -- Make line numbers default
 vim.opt.number = true
 
@@ -58,5 +57,31 @@ vim.opt.softtabstop = 4 -- Number of spaces that a tab counts for while performi
 
 vim.opt.expandtab = true -- Convert tabs to spaces (default: false)
 
+vim.opt.smarttab = true
+
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+--Fix Cpp indet issue with :: in structs.
+-- C++: use Vim’s C-indent and disable colon-triggered re-indent
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "cpp",
+	callback = function()
+		-- Enable C/C++–style indentation
+		vim.opt_local.autoindent = true
+		vim.opt_local.smartindent = true
+		vim.opt_local.cindent = true -- use Vim’s mature C indent :contentReference[oaicite:1]{index=1}
+
+		-- 4-space tabs
+		vim.opt_local.shiftwidth = 4
+		vim.opt_local.tabstop = 4
+		vim.opt_local.softtabstop = 4
+		vim.opt_local.expandtab = true
+
+		-- Prevent re-indent when typing ':' (so 'std::' stays indented)
+		vim.opt_local.cinkeys:remove(":") -- stops ':' from retriggering indent :contentReference[oaicite:2]{index=2}
+
+		-- Extra safety: never yank indent on '::' global-scope operator
+		vim.opt_local.cinoptions:append("L0") -- disable legacy '::' to col 1 rule :contentReference[oaicite:3]{index=3}
+	end,
+})
