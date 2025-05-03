@@ -1,8 +1,10 @@
 return {
-	"folke/tokyonight.nvim",
-	lazy = false,
-	priority = 1000,
+	-- Change to Mofiqul's Dracula theme
+	"Mofiqul/dracula.nvim",
+	lazy = false, -- Load the plugin immediately
+	priority = 1000, -- Ensure it's loaded first
 	config = function()
-		vim.cmd("colorscheme tokyonight-night")
+		-- Set the color scheme to Dracula
+		vim.cmd("colorscheme dracula")
 	end,
 }
