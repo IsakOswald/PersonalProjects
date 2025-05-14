@@ -2,7 +2,19 @@ BasedOnStyle: Google
 IndentWidth: 4
 TabWidth: 4
 UseTab: Never
-ColumnLimit: 80
-
-# Force braces to appear on the next line
+ColumnLimit: 300
 BreakBeforeBraces: Allman
+
+# Add this line to indent contents inside namespaces
+NamespaceIndentation: All  # Ensures that the contents of namespaces are indented
+
+# Disable sorting of includes (prevents reordering)
+SortIncludes: false
+
+# Group includes with custom priorities (system includes first, then project includes)
+IncludeCategories:
+  - Regex: '^<.*>'  # This matches system includes (e.g., <GLFW/glfw3.h>)
+    Priority: 1      # System includes come first
+  - Regex: '.*'      # This matches project-specific includes (e.g., "myheader.h")
+    Priority: 2     # Project-specific includes come after system includes
+
