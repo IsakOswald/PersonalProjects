@@ -3,12 +3,11 @@
   "editor.formatOnSave": true,
   "security.workspace.trust.untrustedFiles": "open",
   "editor.fontSize": 11,
-  "editor.tabSize": 5,
+  "editor.tabSize": 4,
   "editor.minimap.enabled": false,
   "editor.lineNumbers": "relative",
   "editor.renderLineHighlight": "all",
   "workbench.editor.editorActionsLocation": "hidden",
-  "workbench.iconTheme": "vs-minimal",
   "workbench.tips.enabled": false,
   "breadcrumbs.enabled": false,
   "breadcrumbs.icons": false,
@@ -83,9 +82,30 @@
     // Add other keybinds here that need leader, if they dont, put them in the keybindings.json file
     //Add here
   ],
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
+
+  // Set ClangFormat as the default formatter for most files
+  "editor.defaultFormatter": "xaver.clang-format",
+
+  // Override default formatter for HTML files to use Prettier
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+
+  // Override default formatter for JavaScript files to use Prettier
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[css]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "One Dark Pro Darker",
+  "workbench.colorTheme": "Dracula Theme",
+  "workbench.iconTheme": "file-icons",
+  "workbench.editor.empty.hint": "hidden",
+  "editor.stickyScroll.enabled": false,
+  "liveServer.settings.donotVerifyTags": true,
+  "liveServer.settings.donotShowInfoMsg": true,
 }
