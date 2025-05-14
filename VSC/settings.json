@@ -108,4 +108,5 @@
   "editor.stickyScroll.enabled": false,
   "liveServer.settings.donotVerifyTags": true,
   "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.wait": 50,
 }
