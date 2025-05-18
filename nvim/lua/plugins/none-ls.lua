@@ -14,6 +14,7 @@ return {
 			ensure_installed = {
 				"clang-format", -- C/C++ formatter
 				"stylua", -- Lua formatter
+				"ruff", --Python linter and formatter
 			},
 			automatic_installation = true,
 		})
@@ -23,6 +24,10 @@ return {
 			formatting.clang_format,
 			-- Lua formatter
 			formatting.stylua,
+
+			--Ruff stuff [[Can delete later if i dont want python]]
+			require("none-ls.formatting.ruff").with({ extra_args = { "--extend-select", "I" } }),
+			require("none-ls.formatting.ruff_format"),
 		}
 
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
