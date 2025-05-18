@@ -227,7 +227,7 @@ return {
             --
             -- But for many setups, the LSP (ts_ls) will work just fine
             -- ts_ls = {},
-            -- [[Python stuff. Ruff is a linter/formatter]]
+            -- [[Python stuff. Ruff is used for linting (in none-ls config)
             -- NOTE :: Can remove pright if dont need python
             pyright = {},
 
