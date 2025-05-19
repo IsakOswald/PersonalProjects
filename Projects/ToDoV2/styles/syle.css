@@ -1,0 +1,92 @@
+/* Sets the font family for elements within the .mainToDo container */
+.mainToDo {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Styles the text input field */
+#textInput {
+  font-family: "Times New Roman", Times, serif; /* Sets font to Times New Roman */
+  margin-left: 380px; /* Aligns the text input 380px from the left */
+  text-align: center; /* Centers the text inside the input box */
+  border-radius: 4px; /* Rounds the corners of the input box */
+  border: 1px solid black; /* Adds a 1px solid black border */
+  height: 20px; /* Sets the height of the input field */
+  width: 200px; /* Sets the width of the input field */
+  margin-bottom: 35px; /* Adds a 35px space below the input field */
+}
+
+/* Styles the input field when it’s focused (clicked on) */
+#textInput:focus {
+  outline: none; /* Removes the default blue outline around the input field */
+  border: 2px solid royalblue; /* Changes the border to a 2px solid royal blue when focused */
+  box-shadow: 0px 0px 10px rgba(45, 64, 122, 1); /* Adds a shadow effect to the input when focused */
+}
+
+/* Styles the "Add Task" button */
+#addTask {
+  margin-left: 20px; /* Adds a 20px margin to the left of the button */
+  font-family: "Times New Roman", Times, serif; /* Sets the font to Times New Roman */
+  font-weight: bolder; /* Makes the text inside the button bolder */
+  color: darkgrey; /* Sets the text color to dark grey */
+  background-color: rgb(101, 101, 101); /* Sets a grey background color for the button */
+  border-radius: 5px; /* Rounds the corners of the button */
+  border: none; /* Removes the border */
+  width: 50px; /* Sets the width of the button to 50px */
+  height: 17px; /* Sets the height of the button to 17px */
+  cursor: pointer; /* Changes the cursor to a pointer when hovering over the button */
+}
+
+/* Adds a hover effect to the "Add Task" button */
+#addTask:hover {
+  border: none; /* Ensures there is no border on hover */
+  box-shadow: 0px 0px 10px black; /* Adds a black shadow around the button when hovered */
+}
+
+/* Styles the list container where tasks are displayed */
+.list {
+  font-family: "Times New Roman", Times, serif; /* Sets font to Times New Roman */
+  list-style-type: none; /* Removes bullet points from the list items */
+  margin: auto; /* Centers the list container horizontally */
+  background-color: lightgrey; /* Sets a light grey background for the list */
+  max-width: 600px; /* Limits the width of the list to a maximum of 600px */
+  padding-top: 1px; /* Adds a small padding to the top */
+  padding-bottom: 18px; /* Adds a padding of 18px to the bottom */
+  border-radius: 50px; /* Rounds the corners of the list container */
+  box-sizing: border-box; /* Includes padding and border in the element's total width/height */
+
+  /* Flexbox to center the list items horizontally and vertically */
+  display: flex; /* Applies flexbox layout to the list */
+  flex-direction: column; /* Stacks the list items vertically */
+  align-items: center; /* Centers the items horizontally */
+  justify-content: flex-start; /* Aligns the list items to the top vertically */
+}
+
+/* Styles each individual task item in the list */
+.listElement {
+  font-family: Arial, Helvetica, sans-serif; /* Sets font to Arial */
+  font-weight: bolder; /* Makes the text bolder */
+  color: black; /* Sets the text color to black */
+  background-color: rgba(169, 169, 169, 0.386); /* Gives a semi-transparent grey background */
+  padding: 20px; /* Adds 20px padding around the task item */
+  margin-top: 20px; /* Adds 20px margin above each list item */
+  width: 300px; /* Sets the width of the task item to 300px */
+
+  /* Flexbox for positioning the content inside each task item */
+  display: flex; /* Enables flexbox on list items */
+  justify-content: center; /* Centers the content horizontally within the list item */
+  border-radius: 5px; /* Rounds the corners of the task item */
+  max-width: 300px; /* Ensures the item doesn't exceed 300px in width */
+}
+
+/* Styles the remove button inside each task item */
+.removeButton {
+  font-family: "Times New Roman", Times, serif; /* Sets the font to Times New Roman */
+  font-weight: bolder; /* Makes the button text bolder */
+  color: white; /* Sets the text color to white */
+  background-color: red; /* Sets the background color to red */
+  border: none; /* Removes the default border */
+  cursor: pointer; /* Changes the cursor to a pointer when hovering */
+  padding: 5px 10px; /* Adds 5px vertical padding and 10px horizontal padding */
+  border-radius: 5px; /* Rounds the corners of the button */
+  margin-left: auto; /* Pushes the button to the far right of its container */
+}
