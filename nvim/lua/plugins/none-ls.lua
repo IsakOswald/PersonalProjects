@@ -1,7 +1,7 @@
 return {
 	"nvimtools/none-ls.nvim",
 	dependencies = {
-		"nvimtools/none-ls-extras.nvim",
+		"nvimtools/none-ls-extras.nvim", --For webdev stuff.
 		"jayp0521/mason-null-ls.nvim", -- ensure dependencies are installed
 	},
 	config = function()
@@ -9,12 +9,17 @@ return {
 		local formatting = null_ls.builtins.formatting -- to setup formatters
 		local diagnostics = null_ls.builtins.diagnostics -- to setup linters
 
+		--Note:: This is for Java script, can remove if i dont need it later
+		local eslint = require("none-ls.diagnostics.eslint_d")
+
 		-- Formatters & linters for mason to install
 		require("mason-null-ls").setup({
 			ensure_installed = {
 				"clang-format", -- C/C++ formatter
 				"stylua", -- Lua formatter
 				"ruff", --Python linter and formatter
+				"prettier", -- ts/js formatter
+				"eslint_d", -- ts/js linter
 			},
 			automatic_installation = true,
 		})
@@ -28,6 +33,13 @@ return {
 			--Ruff stuff [[Can delete later if i dont want python]]
 			require("none-ls.formatting.ruff").with({ extra_args = { "--extend-select", "I" } }),
 			require("none-ls.formatting.ruff_format"),
+
+			-- HTML / JS / CSS / etc.
+			formatting.prettier.with({ filetypes = { "html", "json", "javascript", "css" } }),
+
+			-- JS/TS Linting with eslint_d
+			--Note:: Need to use npx eslint --init to set up config file to lint (Can use chatgpt)
+			eslint.with({ filetypes = { "javascript" } }),
 		}
 
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

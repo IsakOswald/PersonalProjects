@@ -13,6 +13,14 @@ return {
 				"vim",
 				"vimdoc",
 				"query", -- for Treesitter queries, used internally
+
+				-- Web development languages
+				"html", -- HTML for markup
+				"css", -- CSS stylesheets
+				"javascript", -- JavaScript for web scripting
+
+				-- Additional useful language
+				"python", -- Python for backend/dev work
 			},
 			auto_install = false, -- no need to auto-install stuff you don't want
 			highlight = {
@@ -21,7 +29,7 @@ return {
 			},
 			indent = {
 				enable = true,
-				disable = { "cpp" },
+				disable = { "cpp", "html" },
 			},
 		},
 	},
