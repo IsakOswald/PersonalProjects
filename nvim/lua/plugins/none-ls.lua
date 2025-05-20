@@ -40,6 +40,9 @@ return {
 			-- JS/TS Linting with eslint_d
 			--Note:: Need to use npx eslint --init to set up config file to lint (Can use chatgpt)
 			eslint.with({ filetypes = { "javascript" } }),
+			
+			-- use <npm install -g live-server> to set up a live server (in project dir)
+			-- and <npx eslint --init> to use eslint (without errors)
 		}
 
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
