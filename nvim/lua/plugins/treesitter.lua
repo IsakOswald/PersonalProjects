@@ -29,7 +29,7 @@ return {
 			},
 			indent = {
 				enable = true,
-				disable = { "cpp", "html" },
+				disable = { "cpp", "html", "javascript" },
 			},
 		},
 	},
