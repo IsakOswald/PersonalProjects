@@ -1,0 +1,62 @@
+.weatherStats {
+    font-family: "Times New Roman", Times, serif;
+    color: darkgrey;
+}
+
+.weatherHeading {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    color: blue;
+}
+
+.icons {
+    background-color: transparent;
+}
+
+.citySelectPrompt {
+    font-size: 15px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+#citySelect {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 15px;
+    background-color: lightgrey;
+    font-weight: bolder;
+    border-radius: 2px;
+    border: solid 1px darkgrey;
+    color: white;
+    cursor: pointer;
+}
+
+#citySelect option {
+    background-color: white;
+    color: black;
+    font-size: 14px;
+}
+
+#selectButton {
+    color: white;
+    font-size: 15px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    background-color: darkgrey;
+    border: solid 2px transparent;
+    border-radius: 5px;
+}
+
+#selectButton:hover {
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0.75;
+    border: solid 2px royalblue;
+    box-shadow: 0px 0px 5px blue;
+}
+
+#selectButton:active {
+    transition: opacity 0.2s ease-out;
+    opacity: 0.5;
+}
