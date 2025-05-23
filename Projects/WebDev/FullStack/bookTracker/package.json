@@ -1,0 +1,22 @@
+{
+    "name": "booktracker",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "module",
+    "description": "",
+    "dependencies": {
+        "express": "^5.1.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.27.0",
+        "eslint": "^9.27.0",
+        "globals": "^16.1.0",
+        "nodemon": "^3.1.10"
+    }
+}
