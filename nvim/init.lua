@@ -28,5 +28,4 @@ require("lazy").setup({
 	require("plugins/misc"),
 	require("plugins/lsp-argument-hints"),
 	require("plugins/autotags"), --For html auto closing tags
-	require("plugins/dadbod"), --For SQL
 })
