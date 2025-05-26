@@ -10,21 +10,19 @@
 --}
 
 return {
-	"shaunsingh/nord.nvim",
-	lazy = false,
-	priority = 1000,
-	config = function()
-		-- Nord theme configuration
-		vim.g.nord_contrast = true
-		vim.g.nord_borders = false
-		vim.g.nord_disable_background = true -- enable transparency
-		vim.g.nord_italic = false
-		vim.g.nord_uniform_diff_background = true
-		vim.g.nord_bold = false
+    "shaunsingh/nord.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+        -- Nord theme configuration
+        vim.g.nord_contrast = true
+        vim.g.nord_disable_background = true -- enable transparency
+        vim.g.nord_bold = true
+        vim.g.nord_italic = true
 
-		-- Apply the theme
-		require("nord").set()
-	end,
+        -- Apply the theme
+        require("nord").set()
+    end,
 }
 
---NOTE: Remember to toggle transparency in ITERM2 (can also se blur). Make sure to set it for fullscreen too. Most of this is done through Iterm2 and not the config itself.
+--NOTE: Remember to toggle transparency in ITERM2 (can also se blur). Make sure to set it for fullscreen too.
