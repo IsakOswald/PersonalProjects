@@ -9,20 +9,32 @@
 --    end,
 --}
 
+--return {
+--    "shaunsingh/nord.nvim",
+--    lazy = false,
+--    priority = 1000,
+--    config = function()
+--        -- Nord theme configuration
+--        vim.g.nord_contrast = true
+--        vim.g.nord_disable_background = true -- enable transparency
+--        vim.g.nord_bold = true
+--        vim.g.nord_italic = true
+
+-- Apply the theme
+--        require("nord").set()
+--    end,
+--}
+
+--NOTE: Remember to toggle transparency in ITERM2 (can also se blur). Make sure to set it for fullscreen too.
+
 return {
-    "shaunsingh/nord.nvim",
+    "axvr/photon.vim",
     lazy = false,
     priority = 1000,
     config = function()
-        -- Nord theme configuration
-        vim.g.nord_contrast = true
-        vim.g.nord_disable_background = true -- enable transparency
-        vim.g.nord_bold = true
-        vim.g.nord_italic = true
-
-        -- Apply the theme
-        require("nord").set()
+        -- Enable true color support
+        vim.opt.termguicolors = true
+        -- Set the colorscheme to Photon
+        vim.cmd("colorscheme photon")
     end,
 }
-
---NOTE: Remember to toggle transparency in ITERM2 (can also se blur). Make sure to set it for fullscreen too.
