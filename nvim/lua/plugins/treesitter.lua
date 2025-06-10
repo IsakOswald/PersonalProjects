@@ -21,6 +21,7 @@ return {
 
                 -- Additional useful language
                 "python", -- Python for backend/dev work + other
+                "go",
             },
             auto_install = false, -- no need to auto-install stuff you don't want
             highlight = {
@@ -29,7 +30,7 @@ return {
             },
             indent = {
                 enable = true,
-                disable = { "c", "cpp", "html", "javascript" },
+                disable = { "c", "cpp", "html", "javascript", "go" },
             },
         },
     },

@@ -1,7 +1,7 @@
 return {
 	"nvimtools/none-ls.nvim",
 	dependencies = {
-		"nvimtools/none-ls-extras.nvim", --For webdev stuff.
+		"nvimtools/none-ls-extras.nvim",
 		"jayp0521/mason-null-ls.nvim", -- ensure dependencies are installed
 	},
 	config = function()
@@ -40,9 +40,9 @@ return {
 			-- JS/TS Linting with eslint_d
 			--Note:: Need to use npx eslint --init to set up config file to lint (Can use chatgpt)
 			eslint.with({ filetypes = { "javascript" } }),
-			
-			-- use <npm install -g live-server> to set up a live server (in project dir)
-			-- and <npx eslint --init> to use eslint (without errors)
+
+			-- Go formatting via gofmt
+			formatting.gofmt.with({ filetypes = { "go" } }),
 		}
 
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
