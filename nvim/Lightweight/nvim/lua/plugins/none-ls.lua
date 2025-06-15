@@ -9,6 +9,9 @@ return {
         local formatting = null_ls.builtins.formatting -- to setup formatters
         local diagnostics = null_ls.builtins.diagnostics -- to setup linters
 
+        --Note:: This is for Java script, can remove if i dont need it later
+        local eslint = require("none-ls.diagnostics.eslint_d")
+
         -- Formatters & linters for mason to install
         require("mason-null-ls").setup({
             ensure_installed = {
