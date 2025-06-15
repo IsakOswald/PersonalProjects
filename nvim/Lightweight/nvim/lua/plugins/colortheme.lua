@@ -22,30 +22,14 @@
 --}
 
 return {
-    {
-        "rebelot/kanagawa.nvim",
-        lazy = false, -- Load immediately
-        priority = 1000, -- Load first
-        config = function()
-            require("kanagawa").setup({
-                compile = false, -- Set to true to compile for faster load (optional)
-                undercurl = true,
-                commentStyle = { italic = true },
-                functionStyle = {},
-                keywordStyle = { italic = false },
-                statementStyle = { bold = true },
-                typeStyle = {},
-                transparent = false, -- Enable for transparent bg
-                dimInactive = false, -- Dim inactive windows
-                terminalColors = true,
-                theme = "wave", -- Options: "wave", "dragon", "lotus"
-                background = {
-                    dark = "wave", -- Theme for dark mode
-                    light = "lotus", -- Theme for light mode
-                },
-            })
-
-            vim.cmd("colorscheme kanagawa")
-        end,
-    },
+    "loctvl842/monokai-pro.nvim",
+    lazy = false,                    -- load immediately
+    priority = 1000,                 -- make sure it's the first colorscheme
+    config = function()
+        vim.opt.termguicolors = true -- ensure true color is on before anything
+        require("monokai-pro").setup({
+            filter = "octagon",      -- or "octagon", "machine", etc.
+        })
+        vim.cmd("colorscheme monokai-pro") -- apply the colorscheme
+    end,
 }
