@@ -27,4 +27,5 @@ require("lazy").setup({
     require("plugins/indent-guide"),
     require("plugins/misc"),
     require("plugins/lsp-argument-hints"),
+    require("plugins/insert-scrolloff"),
 })
