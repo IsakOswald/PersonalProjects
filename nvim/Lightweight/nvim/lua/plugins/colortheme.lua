@@ -22,21 +22,30 @@
 --}
 
 return {
-	{
-		"folke/tokyonight.nvim",
-		lazy = false, -- load immediately
-		priority = 1000, -- load first
-		config = function()
-			require("tokyonight").setup({
-				style = "night", -- "storm", "moon", "night", "day"
-				transparent = false,
-				terminal_colors = true,
-				styles = {
-					comments = { italic = true },
-					keywords = { italic = false },
-				},
-			})
-			vim.cmd("colorscheme tokyonight")
-		end,
-	},
+    {
+        "rebelot/kanagawa.nvim",
+        lazy = false, -- Load immediately
+        priority = 1000, -- Load first
+        config = function()
+            require("kanagawa").setup({
+                compile = false, -- Set to true to compile for faster load (optional)
+                undercurl = true,
+                commentStyle = { italic = true },
+                functionStyle = {},
+                keywordStyle = { italic = false },
+                statementStyle = { bold = true },
+                typeStyle = {},
+                transparent = false, -- Enable for transparent bg
+                dimInactive = false, -- Dim inactive windows
+                terminalColors = true,
+                theme = "wave", -- Options: "wave", "dragon", "lotus"
+                background = {
+                    dark = "wave", -- Theme for dark mode
+                    light = "lotus", -- Theme for light mode
+                },
+            })
+
+            vim.cmd("colorscheme kanagawa")
+        end,
+    },
 }
