@@ -22,14 +22,11 @@
 --}
 
 return {
-    "tanvirtin/monokai.nvim",
+    "aditya-azad/candle-grey",
     lazy = false,
     priority = 1000,
     config = function()
-        -- Enable true color support
         vim.opt.termguicolors = true
-
-        -- Load the monokai colorscheme
-        vim.cmd("colorscheme monokai")
+        vim.cmd("colorscheme candle-grey")
     end,
 }
