@@ -22,12 +22,14 @@
 --}
 
 return {
-    "sainnhe/gruvbox-material",
+    "tanvirtin/monokai.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-        vim.opt.termguicolors = true          -- Ensure true color is enabled
-        vim.g.gruvbox_material_palette = "material" -- Choose your preferred palette
-        vim.cmd("colorscheme gruvbox-material") -- Apply the colorscheme
+        -- Enable true color support
+        vim.opt.termguicolors = true
+
+        -- Load the monokai colorscheme
+        vim.cmd("colorscheme monokai")
     end,
 }
