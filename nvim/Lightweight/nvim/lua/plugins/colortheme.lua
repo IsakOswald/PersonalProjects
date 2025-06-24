@@ -20,13 +20,12 @@
 --        vim.cmd("colorscheme photon")
 --    end,
 --}
-
 return {
-    "aditya-azad/candle-grey",
+    "owickstrom/vim-colors-paramount",
     lazy = false,
     priority = 1000,
     config = function()
         vim.opt.termguicolors = true
-        vim.cmd("colorscheme candle-grey")
+        vim.cmd("colorscheme paramount")
     end,
 }
