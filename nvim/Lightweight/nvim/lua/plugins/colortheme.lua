@@ -20,6 +20,7 @@
 --        vim.cmd("colorscheme photon")
 --    end,
 --}
+
 return {
     "owickstrom/vim-colors-paramount",
     lazy = false,
@@ -27,5 +28,8 @@ return {
     config = function()
         vim.opt.termguicolors = true
         vim.cmd("colorscheme paramount")
+
+        -- Override the background to a dark grey (adjust hex as you like)
+        vim.api.nvim_set_hl(0, "Normal", { bg = "#1e1e1e" })
     end,
 }
