@@ -1,0 +1,4 @@
+npm init -y | To set up basic package.json (where we can install libraries).
+npm i express | To install express.
+npm i --save-dev nodemon | To auto reflect code changes (no restart of servers)
+    Then npm run devStart
