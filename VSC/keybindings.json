@@ -10,7 +10,7 @@
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "explorerViewletVisible"
   },
-  // Save a file with ctrl s
+  // Save a file with ctrl w
   {
     "key": "ctrl+w",
     "command": "workbench.action.files.save",
