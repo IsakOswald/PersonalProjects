@@ -7,9 +7,7 @@
   "editor.minimap.enabled": false,
   "editor.lineNumbers": "relative",
   "editor.renderLineHighlight": "all",
-  "workbench.editor.editorActionsLocation": "hidden",
   "workbench.tips.enabled": false,
-  "breadcrumbs.enabled": false,
   "breadcrumbs.icons": false,
   "workbench.activityBar.location": "bottom",
   "editor.cursorBlinking": "solid",
@@ -20,6 +18,8 @@
   "vim.statusBarColors.normal": "",
   "vim.statusBarColors.commandlineinprogress": "",
   "vim.useSystemClipboard": true,
+  "editor.inlayHints.enabled": "off",
+  "editor.parameterHints.enabled": false,
   //Set the leader key to space
   "vim.leader": " ",
   // Make sure we are starting in normal mode and not visual mode or insert mode
@@ -56,7 +56,6 @@
         "editor.action.commentLine"
       ]
     },
-
     // Open fuzzy finder
     {
       "before": [
@@ -82,35 +81,45 @@
     // Add other keybinds here that need leader, if they dont, put them in the keybindings.json file
     //Add here
   ],
-
   // Set ClangFormat as the default formatter for most files
-  "editor.defaultFormatter": "xaver.clang-format",
-
-  // Override default formatter for HTML files to use Prettier
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "[cpp]": {
+    "editor.defaultFormatter": "xaver.clang-format"
   },
-
-  // Override default formatter for JavaScript files to use Prettier
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "[c]": {
+    "editor.defaultFormatter": "xaver.clang-format"
   },
-
-  "[css]": {
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-
-  //Settings for prettier for non colapsing lines.
-  "prettier.htmlWhitespaceSensitivity": "ignore",
-  "prettier.printWidth": 120,
-
-  
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Dracula Theme",
-  "workbench.iconTheme": "file-icons",
   "workbench.editor.empty.hint": "hidden",
   "editor.stickyScroll.enabled": false,
-  "liveServer.settings.donotVerifyTags": true,
-  "liveServer.settings.donotShowInfoMsg": true,
-  "liveServer.settings.wait": 50,
+  "explorer.confirmDragAndDrop": false,
+  "[csharp]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp"
+  },
+  "workbench.colorCustomizations": {
+    "[Default Light+]": {
+      "editor.background": "#f4f4f4", // softer off-white background
+      "editor.foreground": "#222222", // softer dark grey text
+      "sideBar.background": "#f0f0f0", // sidebar softer grey
+      "statusBar.background": "#cccccc", // bottom bar light grey
+      "activityBar.background": "#eaeaea", // left activity bar
+      "titleBar.activeBackground": "#f2f2f2", // title bar background
+      "titleBar.activeForeground": "#222222", // title bar text
+      "editor.selectionBackground": "#dcdcdc", // selection highlight
+      "editor.lineHighlightBackground": "#ebebeb", // highlight active line
+      "editorCursor.foreground": "#444444" // softer dark cursor
+    }
+  },
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "dotnet.codeLens.enableReferencesCodeLens": false,
+  "chat.commandCenter.enabled": false,
+  "workbench.layoutControl.enabled": false,
+  "workbench.navigationControl.enabled": false,
+  "window.commandCenter": false,
+  "workbench.editor.editorActionsLocation": "titleBar",
+  "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "rust-analyzer.lens.run.enable": false,
+  "rust-analyzer.lens.debug.enable": false,
+  "rust-analyzer.inlayHints.chainingHints.enable": false,
+  "workbench.colorTheme": "Default Light+",
 }
